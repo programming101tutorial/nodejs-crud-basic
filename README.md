@@ -1,4 +1,6 @@
 # Node.js CRUD basic
+[![Build Status](https://travis-ci.org/programming101tutorial/nodejs-crud-basic.svg?branch=master)](https://travis-ci.org/programming101tutorial/nodejs-crud-basic)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=programming101tutorial_nodejs-crud-basic2&metric=alert_status)](https://sonarcloud.io/dashboard?id=programming101tutorial_nodejs-crud-basic2)
 
 ## Features!
 

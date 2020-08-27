@@ -2,6 +2,15 @@ language: node_js
 node_js:
     - 12
 cache: npm
+
+dist: trusty
+
+services:
+    - mongodb
+    - redis
+
+branches:
+    - master
 install:
     - npm ci
 addons:
@@ -9,9 +18,11 @@ addons:
         organization: "programming101tutorial"
         token:
             secure: "ppeuGphYb2ueEGamFnxOk+6fNTNE3MRprtgbWFbjWKnW+wCbyBnTFVlxNP7u01HQw3UP6S9CftIcBH2brgdcwaK7yPXvg3hZHzMCALgBWQ150aQ61aHiqwGDCS7MTD4Dje/VGZ0yXqVUoDih78XzzqbZRZAQCk9vNEJCxjHr1ygIlndQWzzfh1QJVVZ+9QY30lzFKBzrObYexHT33048y8+z5lFI0OcWYZVDstvHQ75e2lefpm9DubzxsYS7bkl6fM1Dux2N4t7KkLvoJ8kGB/j46rtoZ9BvMVtInIjXAdptXO6nCYgbTcBf0wVg3MZy6+zzU41x5MxCbOBZZINn/ns0SlG6DUNzC+V+6PvOd65lc85aEq6FjFKAoRUK8dsQRTm4HDsIPuBNzRsLC9xtdvpsCZl1Hgsld5GOsbdC5DdY9FZGt3Ji7YJYC70oYJJcaWjo9CWQKlAs3hvYLWpGIe5f6eHMKfmQiUJdBoBzmp37yq3hrkDZVen+nKD9WtmEC/zXY5G5iokKM5tHfeRTzq7CqFeJG5+mFW43pBjBB/UP8jdt2sYigR74gk4svjx3sz6XVxqBI/2UxDM0Yj0G2/7TTkFUR66lAwKRdKDkuHhtmEZpmL5ulH3kT82ViJTmdt3QgrtWBi6cCS/BWsRJ/CjuOJE8EbLJl6M/Ox2NC8A=" # encrypted value of your token
-    
+    firefox: latest
+    chrome: stable
+
     script:
     # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-    - sonar-scanner
     - npm run test
     - npm run coverage
+    - sonar-scanner

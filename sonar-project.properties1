@@ -1,0 +1,22 @@
+# Github organization linked to sonarcloud
+sonar.organization=programming101tutorial
+
+# Project key from sonarcloud dashboard for Github Action,
+# otherwise pick a project key you like
+sonar.projectKey=programming101tutorial_nodejs-crud-basic
+
+sonar.projectName=nodejs-crud-basic
+sonar.projectVersion=1.0.0
+
+# Not needed for Github Action
+#sonar.host.url=http://localhost:9000
+
+# Provided to Github Action as Secret (see repository/settings/secrets)
+#sonar.login=**SECRET**
+
+sonar.sources=.
+
+sonar.tests=.
+sonar.test.inclusions=**/*.test.js
+sonar.test.exclusions=**/vendor/**
+sonar.javascript.lcov.reportPaths=coverage/lcov.info

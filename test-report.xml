@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="/mnt/c/Users/Mengty/Documents/project/nodejs/nodejs-crud-basic/test/user.test.js">
-    <testCase name="insert insert user" duration="104"/>
-    <testCase name="insert gets user" duration="27"/>
-    <testCase name="insert update user" duration="42"/>
-    <testCase name="insert delete user" duration="27"/>
+  <file path="/mnt/c/Users/Mengty/Documents/project/nodejs/nodejs-crud-basic/test/sum.test.js">
+    <testCase name="adds 1 + 2 to equal 3" duration="5"/>
   </file>
   <file path="/mnt/c/Users/Mengty/Documents/project/nodejs/nodejs-crud-basic/test/mongo.test.js">
-    <testCase name="insert should insert a doc into collection" duration="38"/>
+    <testCase name="insert should insert a doc into collection" duration="28"/>
   </file>
-  <file path="/mnt/c/Users/Mengty/Documents/project/nodejs/nodejs-crud-basic/test/sum.test.js">
-    <testCase name="adds 1 + 2 to equal 3" duration="6"/>
+  <file path="/mnt/c/Users/Mengty/Documents/project/nodejs/nodejs-crud-basic/test/user.test.js">
+    <testCase name="insert insert user" duration="112"/>
+    <testCase name="insert gets user" duration="20"/>
+    <testCase name="insert update user" duration="25"/>
+    <testCase name="insert delete user" duration="10"/>
   </file>
 </testExecutions>

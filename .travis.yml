@@ -1,6 +1,14 @@
 dist: trusty
 sudo: required
 
+language: node_js
+node_js:
+    - 12
+install:
+    - npm ci
+
+jdk:
+    - oraclejdk8
 
 addons:
     sonarcloud:
@@ -10,14 +18,6 @@ addons:
         branches:
             - master
             - develop
-language: node_js
-node_js:
-    - 12
-install:
-    - npm ci
-
-jdk:
-    - oraclejdk8
 
 script:
     # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis

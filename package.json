@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node .",
     "test": "jest",
-    "coverage": "jest --coverage --runInBand --detectOpenHandles"
+    "coverage": "jest --collect-coverage --runInBand --detectOpenHandles",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,8 @@
     "mongoose": "^5.9.28"
   },
   "devDependencies": {
-    "jest": "^26.3.0",
+    "coveralls": "^3.1.0",
+    "jest": "^26.4.2",
     "jest-sonar-reporter": "^2.0.0"
   }
 }

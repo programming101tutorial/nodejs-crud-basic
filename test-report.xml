@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/mnt/c/Users/Mengty/Documents/project/nodejs/nodejs-crud-basic/test1/sum.test.js">
+    <testCase name="adds 1 + 2 to equal 3" duration="6"/>
+  </file>
+  <file path="/mnt/c/Users/Mengty/Documents/project/nodejs/nodejs-crud-basic/test1/mongo.test.js">
+    <testCase name="insert should insert a doc into collection" duration="28"/>
+  </file>
+</testExecutions>

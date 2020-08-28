@@ -1,14 +1,8 @@
-dist: trusty
-sudo: required
-
 language: node_js
 node_js:
     - 12
 install:
     - npm ci
-
-jdk:
-    - oraclejdk8
 
 addons:
     sonarcloud:
@@ -21,7 +15,6 @@ addons:
 
 script:
     # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-    - npm run test
     - npm run coverage
     - sonar-scanner
 cache: 

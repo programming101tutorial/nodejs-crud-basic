@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node .",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage --runInBand --detectOpenHandles"
   },
   "repository": {
     "type": "git",

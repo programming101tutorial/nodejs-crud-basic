@@ -65,7 +65,8 @@ describe('insert', () => {
     expect(typeof(errorUser.error)).toEqual('object');
   });
  
-  afterAll(async () => {
+  afterAll(async (done) => {
     await connection.close();
+    done()
   });
 });

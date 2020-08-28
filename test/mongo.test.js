@@ -26,7 +26,8 @@ describe('insert', () => {
     expect(insertedUser).toEqual(mockUser);
   });
  
-  afterAll(async () => {
+  afterAll(async (done) => {
     await connection.close();
+    done();
   });
 });

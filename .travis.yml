@@ -1,25 +1,29 @@
-language: node_js
-node_js:
-    - 12
-cache: npm
+dist: trusty
+sudo: required
 
-services:
-    - mongodb
-    - redis
 
-branches:
-    - master
-install:
-    - npm ci
 addons:
     sonarcloud:
         organization: "programming101tutorial"
         token:
             secure: "asnsCUcefU0BOr7fab89vfcJhV3tSjI8dwgVB+MMyi6ZzunfjgeHlNWDd/5okSHUdxsZ6Wg4UPSmGqHn/19lnn4tloRVk7rHDH1TQRzNw4HeDxnGiMwvwtzdgHQv/uETA4LIy2Hf4s5cRIRqLCcMAhlML+BKkcT2z+OxaKO17QIUq8/DCl/Jh1HRGCuQIxVLmgU3n0vnOW2VuRjhp2yDKf5m5274WDagty7MTq47x+1S+sJmDUoodzwSMaHHolvafAuc/OSYeCF9UTsuVzVlHD5c4DR57vBh5YVQ0yCBU0Yqlx85phASb4xPBzf5qQFtCv0SjJpkoBnSLkrm+ICW0w0c+0jbtGatAtmCttHxEwCcEnb5B7LKSl5g7PsuuaFzOh7YVsE1/uOjlc2CenrThbPBRaYcWbrwq++z9KZ0abQP4DsFfJeYHUw27gTDCKPF5Llp+ylg4X2VitFFdzIR/y6jhBDiTDzUtAZ61mOAOkAkHsxxjZ9WpnO/nSqFmqpArwpftTeraZbzaAemJ3WSApYy803eX0mDycXCBOpk40brDf7MvH8u38L5wL5kzZRMT8vSv5X6dg13vq8j97wUyg2CbCexhfXQklwk7GCua6adYYwiXc8rpuAr2m6ibhu0C+uoJglzuOd8QUPtgISFjcisJthaX//ObKNfn8Bq+jk=" # encrypted value of your token
+        branches:
+            - master
+            - develop
+language: node_js
+node_js:
+    - 12
+install:
+    - npm ci
 
+jdk:
+    - oraclejdk8
 
-    script:
+script:
     # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
     - npm run test
     - npm run coverage
     - sonar-scanner
+cache: 
+    directories:
+        - '$HOME/.sonar/cache'

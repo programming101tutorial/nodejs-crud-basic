@@ -1,4 +1,3 @@
-const {MongoClient} = require('mongodb');
 const mongoose = require('mongoose');
 const User = require('../app/services/user');
 const mongoDB = process.env.MONGO_URL;
@@ -7,20 +6,12 @@ describe('insert', () => {
   let connection;
   let db;
  
-  beforeAll(async () => {
-    // connection = await MongoClient.connect(process.env.MONGO_URL, {
-    //   useNewUrlParser: true,
-    //   useUnifiedTopology: true
-    // });
-    // db = await connection.db();
+  beforeAll(async (done) => {
     mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+    done();
   });
 
-//   beforeEach(async () => {
-//     await db.collection('COLLECTION_NAME').deleteMany({});
-//   });
-
-  test('insert user', async () => {
+  test('insert user', async (done) => {
     const data = {
         name: 'Mengty',
         gender: 'Male', 
@@ -31,12 +22,14 @@ describe('insert', () => {
     const errorUser = await User.create(34,'sf');
     expect(typeof(user)).toEqual('object');
     expect(typeof(errorUser.error)).toEqual('object');
+    done();
   });
-  test('gets user', async() => {
+  test('gets user', async(done) => {
       const user = await User.read();
       expect(typeof(user)).toEqual('object');
+      done();
   })
-  test('update user', async () => {
+  test('update user', async (done) => {
     const data = {
         name: 'Mengty',
         gender: 'Male', 
@@ -50,8 +43,9 @@ describe('insert', () => {
     expect(typeof(user)).toEqual('object');
     expect(user.name).toEqual('test');
     expect(typeof(errorUser.error)).toEqual('object');
+    done();
   });
-  test('delete user', async () => {
+  test('delete user', async (done) => {
     const data = {
         name: 'Mengty',
         gender: 'Male', 
@@ -63,10 +57,12 @@ describe('insert', () => {
     const errorUser = await User.delete('234');
     expect(typeof(deleteUser)).toEqual('object');
     expect(typeof(errorUser.error)).toEqual('object');
+    done();
   });
  
   afterAll(async (done) => {
-    await connection.close();
+    // await connection.close();
+    mongoose.connection.close();
     done()
   });
 });

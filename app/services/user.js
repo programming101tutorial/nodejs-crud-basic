@@ -1,5 +1,4 @@
 const User = require('../models/user');
-const { json } = require('body-parser');
 
 module.exports = {
     create: async (data) => {
@@ -11,14 +10,14 @@ module.exports = {
                 phone: phone,
                 email: email
             });
-            return user;
+            return ({result: user});
         } catch (error) {
             return ({error});
         }
     },
     read: async () => {
         const user = await User.find({});
-        return user;
+        return ({result: user});
     },
     update: async (id, data) => {
         try {
@@ -29,7 +28,7 @@ module.exports = {
             user.phone = phone;
             user.email = email;
             await user.save();
-            return user;
+            return ({result: user});
         } catch (error) {
             return ({error});
         }
@@ -37,7 +36,7 @@ module.exports = {
     delete: async (id) => {
         try {
             const user = await User.deleteOne({_id: id});
-            return user;
+            return ({result: user});
         } catch (error) {
             return ({error});
         }

@@ -6,7 +6,7 @@ module.exports = {
                 statusCode: status || 400,
                 data: null,
                 meta: meta,
-                error: err.error || err.errors
+                error: err.error || err.errors || err
             });
         };
         res.success = (data, status = 200, meta = {}) => {
@@ -16,7 +16,7 @@ module.exports = {
                 data: data,
                 meta: meta,
                 error: null
-            });
+            });            
         };
         next();
     }

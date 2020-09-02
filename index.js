@@ -1,12 +1,13 @@
 const express = require('express')
-const app = express()
-require('dotenv').config()
 const route = require('./app/routes/index');
 const routePub = require('./app/routes/public');
 const bodyParser = require('body-parser');
 const auth = require('./app/middlewares/auth');
 const error = require('./app/helpers/error');
 const {response} = require('./app/helpers/response');
+
+const app = express()
+require('dotenv').config()
 require('./config/database.config').connect();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())

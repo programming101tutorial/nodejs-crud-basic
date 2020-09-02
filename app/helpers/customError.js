@@ -1,8 +1,12 @@
 class ValidationError extends Error {
-    constructor(message) {
+    constructor(message, meta = {}) {
       super(message); // (1)
+      this.status = "error";
+      this.statusCode = this.code;
+      this.data = null;
+      this.meta = meta;
       this.name = "ValidationError"; // (2)
-    }
+    };
   }
   
   function test() {
